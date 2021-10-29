@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: drumkit-deployment
+  labels:
+    app: drumkit
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: drumkit
+  template:
+    metadata:
+      labels:
+        app: drumkit 
+    spec:
+      containers:
+      - name: nodeserver
+        image: rohitxofficial/drumkit:latest
+        ports:
+        - containerPort: 3000
